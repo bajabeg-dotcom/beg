@@ -20,10 +20,20 @@ logger = logging.getLogger(__name__)
 def main():
     """Main entry point for the GUI application."""
     try:
+        # Import core components
+        from x10_think.core.config_manager import ConfigManager
+        from x10_think.core.event_bus import EventBus
+        from x10_think.core.engine import EngineCoordinator
+        
         # Import PyQt6 and main window
         from PyQt6.QtWidgets import QApplication
         from PyQt6.QtCore import Qt
         from x10_think.gui.main_window import MainWindow
+        
+        # Initialize core components
+        config_manager = ConfigManager()
+        event_bus = EventBus()
+        engine_coordinator = EngineCoordinator(config_manager, event_bus)
         
         # Enable high DPI scaling
         QApplication.setHighDpiScaleFactorRoundingPolicy(
@@ -56,8 +66,12 @@ def main():
         
         app.setPalette(dark_palette)
         
-        # Create and show main window
-        window = MainWindow()
+        # Create and show main window with required dependencies
+        window = MainWindow(
+            config_manager=config_manager,
+            event_bus=event_bus,
+            engine_coordinator=engine_coordinator
+        )
         window.show()
         
         logger.info("X10 Think GUI started successfully")
