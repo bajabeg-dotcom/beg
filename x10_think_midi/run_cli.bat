@@ -21,6 +21,9 @@ if not exist "venv" (
 echo [INFO] Activating virtual environment...
 call venv\Scripts\activate.bat
 
+REM Add src directory to PYTHONPATH
+set PYTHONPATH=%CD%\src;%PYTHONPATH%
+
 echo.
 echo Available commands:
 echo   x10-think analyze ^<midi_file^>    - Analyze a MIDI file

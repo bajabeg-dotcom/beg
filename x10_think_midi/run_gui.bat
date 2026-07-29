@@ -24,6 +24,9 @@ call venv\Scripts\activate.bat
 echo [INFO] Starting X10 Think GUI...
 echo.
 
+REM Add src directory to PYTHONPATH
+set PYTHONPATH=%CD%\src;%PYTHONPATH%
+
 REM Run the GUI entry point
 python -m x10_think.gui_main
 
