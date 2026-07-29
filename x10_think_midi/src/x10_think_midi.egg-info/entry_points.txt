@@ -1,0 +1,2 @@
+[console_scripts]
+x10-think = x10_think.cli:main

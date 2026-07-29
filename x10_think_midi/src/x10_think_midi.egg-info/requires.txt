@@ -1,0 +1,15 @@
+PyYAML>=6.0
+
+[dev]
+pytest>=7.0.0
+pytest-cov>=4.0.0
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.0.0
+
+[docs]
+Sphinx>=6.0.0
+sphinx-rtd-theme>=1.2.0
+
+[gui]
+PyQt6>=6.4.0
